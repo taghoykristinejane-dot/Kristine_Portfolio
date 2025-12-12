@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kristine Jane Taghoy — Portfolio</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <meta name="description" content="Portfolio of Kristine Jane Taghoy — Front-end developer, UI/UX designer, IT student.">
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- NAV -->
+  <header class="site-header sticky-nav" role="banner">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="logo" href="#home">Kristine</a>
+  
+      <button id="nav-toggle" class="nav-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle menu">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+  
+      <ul id="nav-menu" class="nav-menu" role="menu">
+        <li role="none"><a role="menuitem" href="#home" class="nav-link">Home</a></li>
+        <li role="none"><a role="menuitem" href="#about" class="nav-link">About</a></li>
+        <li role="none"><a role="menuitem" href="#services" class="nav-link">Services</a></li>
+        <li role="none"><a role="menuitem" href="#projects" class="nav-link">Projects</a></li>
+        <li role="none"><a role="menuitem" href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#resume" class="nav-link resume-btn">Resume</a></li>
+        <li role="none"><a role="menuitem" href="#contact" class="nav-link">Contact</a></li>
+      
+        <li role="none">
+          <button id="theme-toggle" class="theme-toggle" aria-pressed="false" title="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+          </button>
+        </li>
+  
+        <li role="none">
+          <button id="accent-toggle" class="accent-toggle" title="Change accent color">Accent</button>
+        </li>
+      </ul>
+    </nav>
+  </header>  
+
+  <!-- HERO -->
+  <main id="main">
+    <section id="home" class="hero container" aria-label="Intro" data-aos="fade-up">
+      <div class="hero-left" data-aos="fade-right">
+        <h3><p class="eyebrow" data-aos="fade-up" data-aos-delay="80">Hi, I’m</p></h3>
+        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="140">
+          Kristine Jane Taghoy
+        </h1>
+        
+        <h2 class="typing-full">
+          And I'm a <span class="typing"></span>
+        </h2>
+        
+        <div class="hero-ctas" data-aos="fade-up" data-aos-delay="260">
+          <a href="#contact" class="btn-primary">Hire Me</a>
+          <a href="#projects" class="btn-outline">See Projects</a>
+        </div>
+        <div class="socials" aria-label="Social links" data-aos="fade-up" data-aos-delay="320">
+          <a href="https://www.facebook.com/profile.php?id=61578129331977" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.tiktok.com/@kvender_?_r=1&_t=ZS-922saX4ATyx" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/krs.tinn_?igsh=MWdwMHBvZXIwMjR5cg==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>           
+      </div>
+
+      <div class="hero-right" data-aos="fade-left">
+        <div class="profile-wrap">
+            <div class="profile-blob"></div>
+        
+            <div class="profile-circle">
+                <img src="image.jpg" alt="Kristine Jane Taghoy">
+            </div>
+        </div>        
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about-section">
+      <div class="container">
+          
+        <h2 class="about-heading">About Me</h2>
+    
+        <p class="about-description">
+          I craft modern, responsive, and user-centered digital experiences. With a strong 
+          focus on clarity, performance, and visual polish, I combine thoughtful UI/UX 
+          design with front-end development to build products that feel intuitive, elegant, 
+          and reliable. I believe that great design solves problems — and every pixel, 
+          interaction, and detail should have purpose.
+        </p>
+    
+        <div class="grid">
+          <div class="about-card">
+            <h3>Who I Am</h3>
+            <p>A problem solver who values clarity, performance, and user empathy.</p>
+          </div>
+    
+          <div class="about-card">
+            <h3>Skills</h3>
+            <p>HTML, CSS, JavaScript, React, Tailwind, Figma, Git, accessibility, responsive design.</p>
+          </div>
+    
+          <div class="about-card">
+            <h3>Interests</h3>
+            <p>Design systems, micro-interactions, performance optimization, creative coding.</p>
+          </div>
+        </div>
+    
+      </div>
+    </section>
+    
+
+    <!-- SERVICES -->
+    <section id="services" class="section container">
+      <h2 class="about-heading">My Services</h2>
+    
+      <div class="services-grid">
+    
+        <div class="service-card">
+          <div class="icon">🛠️</div>
+          <h3>UI/UX Design</h3>
+          <p>I craft intuitive, visually polished interfaces backed by user-centered research. From wireframes to final UI, I focus on accessibility, clarity, and seamless usability so every design feels effortless and human-friendly.</p>
+        </div>
+    
+        <div class="service-card">
+          <div class="icon">💻</div>
+          <h3>Front-End Development</h3>
+          <p>I build fast, responsive, and maintainable interfaces using modern frameworks and clean component-based architecture. My code is scalable, organized, and optimized for performance.</p>
+        </div>
+    
+        <div class="service-card">
+          <div class="icon">⚡</div>
+          <h3>Performance & Optimization</h3>
+          <p>I improve website speed, accessibility, and SEO to ensure products load fast, rank well, and deliver smooth real-world performance.</p>
+        </div>
+    
+      </div>
+    </section>    
+    
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="about-heading">My Projects</h2>
+    
+        <div class="projects-grid grid">
+    
+          <!-- Project 1 -->
+          <div class="project-card card">
+            <img src="project1.jpg" alt="Travel Portfolio Project" />
+            <div class="project-body">
+              <h3>Travel Portfolio Experience</h3>
+              <p>
+                A responsive and visually engaging travel portfolio featuring smooth
+                micro-interactions and immersive layouts designed for modern UI standards.
+              </p>
+              <div class="project-actions">
+                <a href="https://dribbble.com/shots/20240287-Travel-Agency-Card-Slider-for-Wordpress" class="btn-link">View</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Project 2 -->
+          <div class="project-card card">
+            <img src="project2.jpg" alt="UI/UX Case Study" />
+            <div class="project-body">
+              <h3>Accessibility-Driven UI/UX Case Study</h3>
+              <p>
+                A complete UI/UX redesign focused on usability, accessibility,
+                and seamless user flows — crafted to improve user confidence and task completion.
+              </p>
+              <div class="project-actions">
+                <a href="https://blog.prototypr.io/citymaas-accessibility-redefined-a-ux-case-study-2a51579661b5" class="btn-link">View</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Project 3 -->
+          <div class="project-card card">
+            <img src="project3.jpg" alt="Product Landing Page" />
+            <div class="project-body">
+              <h3>Performance-First Landing Page</h3>
+              <p>
+                A clean, lightweight product landing page built with a
+                performance-optimized approach focusing on speed, clarity,
+                and conversion-driven design.
+              </p>
+              <div class="project-actions">
+                <a href="https://www.calm.com/" class="btn-link">View</a>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials-section section container">
+      <h2 class="about-heading">What People Say</h2>
+    
+      <div class="testimonials">
+    
+        <div class="testimonial">
+          <p>
+            “Kristine delivered clean, accessible, and modern designs that elevated our product. 
+            Her attention to detail and proactive communication made the entire process effortless.”
+          </p>
+          <cite>— Maria Santos, Product Manager</cite>
+        </div>
+    
+        <div class="testimonial">
+          <p>
+            “Exceptional work. Kristine’s improvements boosted our UI consistency and significantly increased
+            user engagement. Highly recommended.”
+          </p>
+          <cite>— Alex Cruz, Founder</cite>
+        </div>
+    
+      </div>
+    </section>
+
+
+   <section id="resume" class="resume-section">
+    <h2 class="resume-heading">My Resume</h2>
+
+    <div class="resume-grid">
+
+        <!-- Education -->
+        <div class="resume-card">
+            <h3 class="resume-label">Education</h3>
+            <div class="resume-item">
+                <h4>Bachelor of Science in Information Systems</h4>
+                <p class="sub">Inabanga College of Arts & Sciences</p>
+                <p class="sub">Expected Graduation: 2027-2028</p>
+            </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="resume-card">
+            <h3 class="resume-label">Experience & Projects</h3>
+            <div class="resume-item">
+                <h4>Frontend Developer — Freelance</h4>
+                <p>Developing fast, responsive websites with focus on UI/UX.</p>
+            </div>
+            <div class="resume-item">
+                <h4>UI/UX Designer — Academic Projects</h4>
+                <p>Building intuitive designs with emphasis on clarity and usability.</p>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="resume-card">
+            <h3 class="resume-label">Skills</h3>
+            <ul class="resume-list">
+                <li>HTML, CSS, JavaScript</li>
+                <li>React, Tailwind, UI Components</li>
+                <li>Figma, Wireframing, Prototyping</li>
+                <li>Accessibility & Responsive Design</li>
+                <li>Git & Version Control</li>
+            </ul>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="resume-card">
+            <h3 class="resume-label">Soft Skills</h3>
+            <ul class="resume-list">
+                <li>Communication</li>
+                <li>Problem Solving</li>
+                <li>Time Management</li>
+                <li>Team Collaboration</li>
+                <li>Attention to Detail</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="resume-button-container">
+    <a class="resume-download" href="Kristine_Resume.pdf">Download Full Resume (PDF)</a>
+</div>
+
+</section>
+    
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="contact-container fade-up">
+        <h2 class="about-heading">Contact Me</h2>
+    
+        <div class="contact-container fade-up">
+          <p class="contact-intro">
+            I’d love to hear about your project. Whether you’re planning something big or just
+            want to say hello, feel free to send a message — I usually reply within a day.
+          </p>
+    
+          <form class="contact-form">
+    
+            <input type="text" placeholder="Your name" required />
+    
+            <input type="email" placeholder="Email address" required />
+    
+            <textarea placeholder="Tell me about your project..." rows="6" required></textarea>
+    
+            <div class="contact-actions">
+              <p><button type="submit" class="contact-btn">Send Message</button></p>
+              <a href="Kristine-Jane-Taghoy-Resume.pdf" class="contact-btn secondary">
+                Download Resume
+              </a>
+            </div>
+    
+          </form>
+        </div>
+      </div>
+    </section>    
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Kristine Jane Taghoy. All rights reserved.</p>
+      <small>Crafted with ♥ · Accessible · Responsive</small>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button id="scroll-top" class="scroll-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- Project Modal -->
+  <div id="project-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="project-title">
+    <div class="modal-backdrop" data-action="close"></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" data-action="close" aria-label="Close modal">&times;</button>
+      <div class="modal-content">
+        <h3 id="project-title">Project</h3>
+        <img id="project-image" src="" alt="">
+        <p id="project-desc"></p>
+        <div id="project-links"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AOS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Main JS -->
+  <script src="script.js"></script>
+</body>
+</html>

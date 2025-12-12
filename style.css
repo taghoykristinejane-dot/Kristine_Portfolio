@@ -1,0 +1,1887 @@
+/* style.css — Complete polished styling */
+
+/* ---------- Theme Variables ---------- */
+:root{
+    --primary: #ff6b4a;
+    --primary-600: #e05636;
+    --accent-2: #ffd6c3;
+    --bg: #fbfbfc;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --text: #0f172a;
+    --radius: 14px;
+    --glass: rgba(255,255,255,0.6);
+    --max-width: 1200px;
+    --drop: 0 20px 40px rgba(2,6,23,0.08);
+  }
+  
+  /* ---------- DARK MODE FIXES ---------- */
+  :root[data-theme="dark"] {
+    --bg: #0d1117;          /* clean dark */
+    --card: #161b22;        /* GitHub-style dark */
+    --text: #f0f6fc;        /* very bright text */
+    --muted: #b3c0ce;       /* soft gray */
+    --primary: #ffa37f;     /* keep your accent bright */
+    --primary-600: #ff8a50;
+}
+
+:root[data-theme="dark"] .site-header {
+  background: rgba(13, 17, 23, 0.85);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Fix Hero Text in Dark Mode */
+[data-theme="dark"] .hero-left h1,
+[data-theme="dark"] .hero-left .eyebrow,
+[data-theme="dark"] .hero-left .lead {
+  color: var(--text) !important;
+}
+
+/* Fix Typing Text in Dark Mode */
+[data-theme="dark"] .typing {
+  color: var(--primary) !important;
+  border-right-color: var(--primary) !important;
+}
+
+/* Fix profile blob in dark mode (too bright) */
+[data-theme="dark"] .profile-blob {
+  opacity: 0.45;
+  filter: blur(28px);
+}
+  
+  
+  /* Accent alternatives (JS toggles .accent-X on body) */
+  body.accent-blue { --primary: #4f8df7; }
+  body.accent-green { --primary: #29c48a; }
+  body.accent-purple { --primary: #9b6cf7; }
+  
+  /* Reset */
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  
+  body{
+    font-family:"Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(135deg, #f6f0ff, #fdfaff, #f3ecff);
+    color:var(--text);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  
+  /* Utility */
+  .container{width:calc(100% - 48px);max-width:var(--max-width);margin:0 auto}
+  .section{padding:4.2rem 0}
+  
+  /* Skip link */
+  .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+  .skip-link:focus{left:1rem;top:1rem;background:var(--primary);color:#fff;padding:.5rem 1rem;border-radius:8px;z-index:2000}
+  
+  /* Header */
+  .site-header{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(255, 255, 255, 0.85);backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+  .logo{font-weight:800;color:var(--primary);font-size:1.4rem;text-decoration:none}
+  .nav-menu{display:flex;align-items:center;gap:1rem;list-style:none}
+  .nav-link{color:var(--text);text-decoration:none;padding:.5rem .6rem;border-radius:10px;font-weight:600;transition:all .25s}
+  .nav-link:hover,.nav-link.active{background:var(--primary);color:#fff}
+  .btn-outline{border:2px solid var(--primary);padding:.5rem .9rem;border-radius:10px;text-decoration:none;color:var(--primary);font-weight:700}
+  .resume-btn{margin-left:.4rem}
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:.4rem}
+  .hamburger{width:22px;height:3px;background:var(--text);display:block;position:relative;border-radius:4px}
+  .hamburger::before,.hamburger::after{content:"";position:absolute;left:0;width:22px;height:3px;background:var(--text);border-radius:4px}
+  .hamburger::before{top:-7px}
+  .hamburger::after{top:7px}
+  
+  /* Theme + Accent buttons */
+  .theme-toggle, .accent-toggle{background:transparent;border:0;cursor:pointer;padding:.4rem;font-weight:700;color:var(--muted)}
+  
+/* --- Enhanced About Me Styling --- */
+.about-section {
+  margin-top: 2rem;
+}
+
+.about-heading {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.about-description {
+  font-size: 1.25rem;
+  max-width: 1050px;
+  line-height: 1.9;
+  font-weight: 400;
+  color: var(--text);
+  opacity: 0.95;
+  margin-bottom: 2.5rem;
+}
+
+/* Improve the three cards below About Me */
+.about-card {
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--drop);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(2,6,23,0.12);
+}
+
+.about-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: .6rem;
+  color: var(--text);
+}
+
+.about-card p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+
+/* --------------------------------------------------
+   ✨ BEAUTIFIED SERVICES SECTION
+-------------------------------------------------- */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2rem;
+  margin-top: 2rem;
+}
+
+/* --- Individual Service Card --- */
+.service-card {
+  background: var(--card);
+  padding: 2.2rem;
+  border-radius: 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+  transition: transform .25s ease, box-shadow .25s ease;
+  animation: slideUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+/* Gradient Glow Border */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  padding: 2px;
+  background: linear-gradient(135deg, 
+    rgba(0, 200, 150, 0.12), 
+    rgba(0, 150, 255, 0.12),
+    rgba(255, 150, 200, 0.12)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* 3D Hover Effect */
+.service-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.12);
+}
+
+/* Icon Glow */
+.service-card .icon {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  display: inline-flex;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(0, 200, 150, 0.1);
+  box-shadow: 0 0 18px rgba(0, 200, 150, 0.18);
+}
+
+/* Title */
+.service-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: var(--title);
+}
+
+/* Description — JUSTIFIED */
+.service-card p {
+  font-size: 1.17rem;
+  line-height: 1.75;
+  text-align: justify;
+  color: var(--text);
+}
+
+
+/* Slide-up Animation */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 1000px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.contact-intro {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+
+  /* HERO */
+ .hero {
+    display: grid;
+    grid-template-columns: 1fr 560px;
+    gap: 3rem;
+    align-items:  flex-start;;
+    padding-top:1px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+  .hero-left h1{font-size:2.6rem;line-height:1.05;margin-bottom:.4rem;font-weight:800}
+  .hero-left .eyebrow{font-weight:600;color:var(--muted);margin-bottom:.4rem}
+  .hero-left h1 span{color:var(--primary)}
+  .lead{color:var(--muted);margin-bottom:1rem;font-size:1.05rem}
+  .hero-ctas{display:flex;gap:1rem;margin:1rem 0}
+  .btn-primary{background:var(--primary);color:#fff;padding:.75rem 1.1rem;border-radius:12px;text-decoration:none;font-weight:800}
+  .btn-primary:hover{background:var(--primary-600)}
+  .btn-outline{background:transparent;border:2px solid rgba(0,0,0,0.06);padding:.6rem 1rem;border-radius:10px;text-decoration:none}
+
+.profile-image,
+.hero-img,
+.profile-wrap {
+    margin-top: -200px;   /* Move even higher */
+}
+
+  #home {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* pushes text left, image right */
+    align-items: center;
+    padding: 0 80px; /* add spacing from the edges */
+}
+
+/* Align hero text with website title */
+.hero-content {
+    max-width: 600px;
+}
+
+/* Push profile photo to the far right */
+.hero-image {
+    margin-left: auto;    /* pushes the image to the right */
+    padding-right: 80px;  /* aligns with Accent button */
+}
+
+/* Ensure hero layout is side-by-side */
+#home, .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+  /* Profile layout */
+  .profile-wrap{
+    position:relative;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    margin-top: -120px;
+  }
+  
+  .profile-blob{
+    position:absolute;
+    right:-20px;
+    top:-30px;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--accent-2),var(--primary));
+    filter:blur(36px);
+    transform:rotate(12deg);
+    opacity:.85;
+    z-index:0;
+  }
+  
+  .profile-circle {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 6px solid var(--primary);
+    background: radial-gradient(circle, var(--accent-light), var(--primary));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  :root {
+    --accent-light: #ffe8e1;
+  }
+  body.accent-blue {
+    --accent-light: #dbe8ff; 
+  }
+  
+  body.accent-green {
+    --accent-light: #d4ffec; 
+  }
+  
+  body.accent-purple {
+    --accent-light: #f1e1ff;
+  }
+  
+  .profile-circle img {
+    width: 108%;
+    height: auto;
+    object-fit: cover;
+    object-position: 45% center; /* move image slightly left */
+}
+
+
+  /* Grid & cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:1.6rem}
+  .card{background:var(--card);padding:1.6rem;border-radius:12px;box-shadow:var(--drop);transition:transform .25s ease,box-shadow .25s ease}
+  .card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(2,6,23,0.08)}
+  .card h3{margin-bottom:.6rem}
+  
+  /* Projects */
+  .projects-grid{margin-top:1.8rem}
+  .project-card{overflow:hidden;border-radius:12px;background:var(--card);box-shadow:0 8px 30px rgba(2,6,23,0.06);display:flex;flex-direction:column;transition:transform .28s}
+  .project-card img{width:100%;height:200px;object-fit:cover}
+  .project-body{padding:1rem 1rem 1.4rem;display:flex;flex-direction:column;gap:.6rem}
+  .project-actions{display:flex;gap:.6rem;align-items:center}
+  .btn-link{background:none;border:0;color:var(--primary);cursor:pointer;font-weight:800}
+  .btn-link:hover{text-decoration:underline}
+  /* Make project images larger + crisp */
+.project-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: transform .35s ease, filter .35s ease;
+  filter: brightness(0.92) contrast(1.05);
+}
+
+/* Hover zoom + clarity */
+.project-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1) contrast(1.1);
+}
+
+/* Enhanced project card styling */
+.project-card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 1.4rem;
+  box-shadow: 0 12px 35px rgba(2, 6, 23, 0.08);
+  transition: transform 0.28s ease, box-shadow 0.3s ease, border 0.4s ease;
+  border: 2px solid rgba(255,255,255,0.4);
+  backdrop-filter: blur(6px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light glow underline on hover */
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 50px rgba(2, 6, 23, 0.15);
+  border-color: var(--primary);
+}
+
+/* Subtle gradient frame around cards */
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--primary), transparent);
+  -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: .35;
+  pointer-events: none;
+  transition: opacity .4s ease;
+}
+
+.project-card:hover::before {
+  opacity: .75;
+}
+
+/* Title styles */
+.project-card h3 {
+  font-size: 1.45rem;
+  font-weight: 650;
+  color: var(--text);
+}
+
+/* Body text */
+.project-body p {
+  font-size: 1.1rem;
+  opacity: .92;
+  line-height: 1.7;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* Buttons */
+.project-actions a {
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-decoration: none;
+  position: relative;
+}
+
+.project-actions a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width .3s;
+}
+
+.project-actions a:hover::after {
+  width: 100%;
+}
+
+/* 3D Tilt Hover Effect */
+.project-card {
+  transform-style: preserve-3d;
+  transition: transform .3s ease, box-shadow .3s ease;
+  perspective: 1000px;
+}
+
+/* 3D hover lift */
+.project-card:hover {
+  transform: translateY(-12px) rotateX(8deg) rotateY(-6deg);
+  box-shadow: 0 30px 60px rgba(2, 6, 23, 0.18);
+}
+
+/* Make image pop outward in 3D */
+.project-card img {
+  transform: translateZ(20px);
+  transition: transform .35s ease;
+}
+
+.project-card:hover img {
+  transform: translateZ(40px) scale(1.05);
+}
+/* Slide-in base state */
+.project-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+/* When visible */
+.project-card.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  
+ /* --------------------------------------------------
+   ✨ BEAUTIFIED TESTIMONIAL CARDS
+-------------------------------------------------- */
+
+.testimonials-section {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+/* --- Testimonial Card --- */
+.testimonial {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+  position: relative;
+  transition: transform .25s ease, box-shadow .25s ease;
+  animation: fadeUp 0.7s ease forwards;
+  opacity: 0;
+}
+
+/* Soft glow overlay */
+.testimonial::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,107,74,0.12),
+    rgba(255,184,165,0.08),
+    transparent
+  );
+  z-index: -1;
+}
+
+/* Hover effect */
+.testimonial:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 55px rgba(0,0,0,0.12);
+}
+
+/* Testimonial quote text */
+.testimonial p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+/* Author */
+.testimonial cite {
+  font-size: 1.05rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Fade-up animation */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Layout */
+@media (max-width: 900px) {
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* --- FIXED GRID LAYOUT --- */
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 equal columns */
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+/* Make textarea full width */
+.contact-form textarea {
+  grid-column: 1 / -1;
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* Inputs */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.75);
+  font-size: 1rem;
+  color: var(--text);
+  transition: 0.3s ease;
+}
+
+/* Focus */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255,107,74,0.2);
+}
+
+/* --- FIX BUTTON ROW --- */
+.contact-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Buttons */
+.contact-btn {
+  background: var(--primary);
+  color: #fff;
+  padding: 0.85rem 1.4rem;
+  border-radius: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.contact-btn.secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.contact-btn.secondary:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Mobile Responsive */
+@media (max-width: 700px) {
+  .contact-form { grid-template-columns: 1fr; }
+  .contact-actions { flex-direction: column; }
+  .contact-btn { width: 100%; text-align: center; }
+}
+
+
+  
+  /* Footer */
+  .site-footer{padding:1.6rem 0;margin-top:3rem;background:transparent;color:var(--muted);text-align:center}
+  
+  /* Scroll-to-top */
+  .scroll-top{position:fixed;right:1rem;bottom:1.2rem;background:var(--card);border:0;padding:.6rem .7rem;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.08);display:none;cursor:pointer;z-index:120}
+  .scroll-top i{font-size:.9rem;color:var(--text)}
+  
+  /* Modal */
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:2000}
+  .modal[aria-hidden="false"]{display:flex}
+  .modal-backdrop{position:absolute;inset:0;background:rgba(3,6,23,0.6)}
+  .modal-panel{position:relative;background:var(--card);width:min(980px,94%);max-height:85vh;overflow:auto;border-radius:12px;padding:1.2rem;z-index:2;box-shadow:0 30px 80px rgba(2,6,23,0.3)}
+  .modal-close{position:absolute;right:8px;top:6px;border:0;background:transparent;font-size:1.6rem;cursor:pointer}
+  .modal-content img{width:100%;height:auto;border-radius:8px;margin-top:.6rem}
+  
+  /* Responsive */
+  @media (max-width:1000px){
+    .hero{grid-template-columns:1fr 300px}
+    .profile-blob{width:320px;height:320px;right:-40px;top:-40px}
+  }
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;text-align:center}
+    .profile-circle{margin:1rem auto}
+    .nav-menu{position:fixed;right:1rem;top:70px;background:var(--card);padding:1rem;border-radius:12px;flex-direction:column;gap:.6rem;display:none;box-shadow:0 10px 40px rgba(2,6,23,0.12);max-width:260px}
+    .nav-menu.show{display:flex}
+    .nav-toggle{display:block}
+    .testimonials{grid-template-columns:1fr}
+    .projects-grid{grid-template-columns:1fr}
+    .hero-badges{display:none}
+  }
+  
+  /* Focus */
+  a:focus,button:focus,input:focus,textarea:focus{outline:3px solid rgba(255,107,74,0.12);outline-offset:3px;border-radius:8px}
+  
+  /* Small screens tweaks */
+  @media (max-width:480px){
+    .hero-left h1{font-size:1.7rem}
+    .profile-circle{width:220px;height:220px}
+  }
+  
+  .typing-full {
+    font-size: 1.9rem;
+    font-weight: 800;
+    margin: 0.4rem 0 1rem;
+    color: var(--text);
+  }
+  
+  .typing {
+    color: var(--primary);
+    font-weight: 800;               /* Make the typing text bold */
+    border-right: 3px solid var(--primary); /* Cursor */
+    padding-right: 6px;
+    white-space: nowrap;
+    animation: caretBlink .7s infinite;
+}
+  
+  .typed-cursor {
+    display: none !important;
+  }
+  
+  @keyframes caretBlink {
+    50% { border-color: transparent; }
+  }
+  
+  
+  /* --- FIX DARK MODE --- */
+:root[data-theme="dark"] body {
+  background: #0d1117 !important;   /* clean dark background */
+}
+
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .contact-container,
+:root[data-theme="dark"] .project-card,
+:root[data-theme="dark"] .testimonial,
+:root[data-theme="dark"] .modal-panel {
+  background: #161b22 !important;   /* Github-style dark cards */
+  color: #f0f6fc !important;
+}
+
+/* Fix the sections fading out */
+:root[data-theme="dark"] .section,
+:root[data-theme="dark"] .container,
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4 {
+  color: #f0f6fc !important;
+}
+/* Primary buttons */
+:root[data-theme="dark"] .btn-primary {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+}
+
+/* Outline buttons visible in dark */
+:root[data-theme="dark"] .btn-outline {
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  background: transparent !important;
+}
+
+
+/* Ensure header/nav is always above the hero glow */
+.site-header,
+.nav,
+.nav-menu,
+.theme-toggle,
+.accent-toggle {
+  position: relative;
+  z-index: 9999 !important;
+  pointer-events: auto !important;
+}
+
+/* Lower profile glow so it doesn't cover the navbar */
+.profile-blob {
+  z-index: 0 !important;
+  pointer-events: none !important; /* Important: glow can't block clicks anymore */
+}
+
+/* Ensure nav buttons are clickable */
+.theme-toggle,
+.accent-toggle {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* --- Sticky Navbar --- */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* When scrolled */
+.sticky-nav.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+/* ---------------------------------------
+   ACCENT-REACTIVE SOCIAL ICONS
+----------------------------------------*/
+.socials {
+  display: flex;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+/* Default color follows normal text color */
+.socials a {
+  font-size: 32px;
+  color: var(--text);
+  transition: color 0.28s ease, transform 0.28s ease, text-shadow 0.28s ease;
+}
+
+/* Hover → accent color */
+.socials a:hover {
+  color: var(--primary);
+  transform: translateY(-4px) scale(1.18);
+  text-shadow: 0 0 12px var(--primary);
+}
+
+/* Click */
+.socials a:active {
+  transform: scale(.9);
+  color: var(--primary);
+  text-shadow: 0 0 18px var(--primary);
+}
+
+/* Keyboard focus */
+.socials a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+/* ---------------------------------------
+   ACCENT-REACTIVE HERO BUTTONS
+----------------------------------------*/
+
+/* Solid Button — Hire Me */
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  padding: .75rem 1.1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 800;
+  transition: 0.28s ease;
+}
+
+/* Hover */
+.btn-primary:hover {
+  background: var(--primary-600);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Click / Active */
+.btn-primary:active {
+  background: var(--primary-600);
+  transform: scale(.92);
+}
+
+
+/* Outline Button — See Projects */
+.btn-outline {
+  background: transparent;
+  border: 3px solid rgba(0,0,0,0.1);
+  padding: .75rem 1.1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 800;
+  color: var(--primary);
+  transition: 0.28s ease;
+}
+
+/* Hover */
+.btn-outline:hover {
+  color: #fff;
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Click / Active */
+.btn-outline:active {
+  background: var(--primary-600);
+  border-color: var(--primary-600);
+  transform: scale(.92);
+}
+
+/* Make "Hi, I'm" follow the accent color */
+.eyebrow {
+  color: var(--primary) !important;
+  font-size: 1.6rem;     /* adjust size */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.6rem;
+  display: inline-block;
+}
+
+/* ============================================
+   🔥 GLOWING + ANIMATED SECTION HEADINGS
+   Applies to: h2.section-title AND About Me title
+============================================ */
+.section-title,
+.about-heading {
+    font-size: 3rem; 
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 1.2rem;
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 6px;
+    animation: titleFloat 3s ease-in-out infinite;
+    text-shadow: 0 0 12px var(--primary), 0 0 24px var(--primary);
+}
+
+/* Soft glowing underline */
+.section-title::after,
+.about-heading::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 4px;
+    border-radius: 20px;
+    background: var(--primary);
+    box-shadow: 0 0 15px var(--primary);
+    animation: underlineGlow 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes titleFloat {
+    0%, 100% {
+        transform: translateY(0);
+        text-shadow: 0 0 12px var(--primary), 0 0 24px var(--primary);
+    }
+    50% {
+        transform: translateY(-4px);
+        text-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary);
+    }
+}
+
+/* Underline pulsing glow */
+@keyframes underlineGlow {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 12px var(--primary);
+    }
+    50% {
+        opacity: 0.6;
+        box-shadow: 0 0 30px var(--primary);
+    }
+}
+
+/* ============================================
+   ✨ GLOBAL GLASSMORPHISM CARD STYLE
+   Applies to: about-card, service-card,
+   project-card, testimonial, contact-container
+   ============================================ */
+
+   .about-card,
+   .service-card,
+   .project-card,
+   .testimonial {
+     background: rgba(255, 255, 255, 0.25) !important;
+     backdrop-filter: blur(18px) !important;
+     -webkit-backdrop-filter: blur(18px) !important;
+   
+     border: 1px solid rgba(255, 255, 255, 0.38);
+     box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+   
+     border-radius: 22px !important;
+     animation: glassFade 0.6s ease forwards;
+     transform: translateY(0);
+     transition: transform .25s ease, box-shadow .25s ease, border .25s ease;
+   }
+   
+   /* Hover effect – subtle lift + glow */
+   .about-card:hover,
+   .service-card:hover,
+   .project-card:hover,
+   .testimonial:hover,
+   .contact-container:hover {
+     transform: translateY(-8px) scale(1.02);
+     box-shadow: 0 20px 55px rgba(0,0,0,0.18);
+     border-color: rgba(255,255,255,0.6);
+   }
+   
+   /* Smooth fade animation */
+   @keyframes glassFade {
+     from { opacity: 0; transform: translateY(20px); }
+     to { opacity: 1; transform: translateY(0); }
+   }
+   
+   /* DARK MODE glass fix */
+   :root[data-theme="dark"] .about-card,
+   :root[data-theme="dark"] .service-card,
+   :root[data-theme="dark"] .project-card,
+   :root[data-theme="dark"] .testimonial,
+   :root[data-theme="dark"] .contact-container {
+     background: rgba(255, 255, 255, 0.06) !important;
+     border: 1px solid rgba(255, 255, 255, 0.15);
+     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+   }
+
+  
+/* TESTIMONIAL — SOFT CREAM WITH ACCENT OUTLINE */
+.testimonial {
+  background: #fef9f6 !important; /* soft warm cream */
+  border: 2px solid var(--primary);
+  border-radius: 20px;
+  padding: 2rem;
+
+  box-shadow: 0 10px 35px rgba(0,0,0,0.07);
+  transition: .3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 45px rgba(0,0,0,0.10);
+}
+
+/* Remove orange */
+.testimonial::before { background: none !important; }
+
+/* --------------------------------------------------
+   💜 MODERN PURPLE CONTACT FORM (FINAL VERSION)
+-------------------------------------------------- */
+
+.contact-container {
+  background: linear-gradient(135deg, #1b103f 0%, #5024a6 100%);
+  padding: 3rem;
+  border-radius: 26px;
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+/* Remove any old overlay */
+.contact-container::before {
+  display: none !important;
+}
+
+/* FORM GRID */
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+/* Textarea full width */
+.contact-form textarea {
+  grid-column: 1 / -1;
+  min-height: 160px;
+}
+
+/* Inputs */
+.contact-form input,
+.contact-form textarea {
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 15px 18px;
+  font-size: 1rem;
+  border-radius: 14px;
+  transition: 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+/* Placeholder */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Focus */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 12px var(--primary);
+}
+
+/* Buttons */
+.contact-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.contact-btn {
+  padding: 0.9rem 1.6rem;
+  border-radius: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: .25s ease;
+  background: var(--primary);
+  color: white;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* Secondary button */
+.contact-btn.secondary {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.contact-btn.secondary:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+
+/* ============================================
+   FIXED DARK SERVICE CARD STYLE
+============================================ */
+.service-card {
+  background: #111827 !important; /* clean dark slate */
+  border-radius: 22px !important;
+  padding: 35px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35) !important;
+  color: #f3f4f6 !important;
+  transition: 0.3s ease;
+}
+
+/* Titles inside service cards */
+.service-card h3 {
+  color: #f9fafb !important;
+  font-weight: 700 !important;
+}
+
+/* Paragraphs */
+.service-card p {
+  color: #e5e7eb !important;
+}
+
+/* Emoji/Icon */
+.service-card .icon,
+.service-card i,
+.service-card span {
+  font-size: 42px !important;
+  margin-bottom: 15px !important;
+}
+
+/* Hover effect */
+.service-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.55) !important;
+  border-color: var(--accent-color) !important;
+}
+
+
+/* --------------------------------------------------
+   💜 MODERN PURPLE PROJECT CARD (MATCHES CONTACT FORM)
+-------------------------------------------------- */
+
+.project-card {
+  background: linear-gradient(135deg, #1b103f 0%, #5024a6 100%) !important;
+  border-radius: 26px !important;
+  padding: 2rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35) !important;
+  backdrop-filter: blur(10px) !important;
+  color: #ffffff !important;
+  transition: 0.3s ease;
+}
+
+/* Remove old light glow border */
+.project-card::before {
+  display: none !important;
+}
+
+/* Text color inside */
+.project-card h3 {
+  color: #fff !important;
+}
+
+.project-card p {
+  color: #e8e8e8 !important;
+}
+
+/* Links */
+.project-card a {
+  color: #cba6ff !important;
+}
+
+.project-card a:hover {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+/* Hover */
+.project-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.55) !important;
+}
+
+/* --------------------------------------------------
+   💜 UPGRADED ABOUT ME CARDS (Hover + Glow)
+-------------------------------------------------- */
+
+.about-card {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 22px !important;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: .3s ease;
+}
+
+/* Hover */
+.about-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+  border-color: var(--primary);
+}
+
+/* Title color stays readable */
+.about-card h3 {
+  position: relative;
+  display: inline-block;
+  font-weight: 800;
+  color: var(--primary); /* highlight color */
+}
+
+.about-card h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+
+
+/* Paragraph */
+.about-card p {
+  color: var(--text);
+  opacity: .9;
+}
+
+#home {
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;  /* keeps your home content in the same position */
+}
+
+
+/* ABOUT SECTION — Bigger + Justified Text */
+#about {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;      /* centers vertically */
+    align-items: center;          /* centers horizontally */
+    padding-top: 120px;
+    padding-bottom: 100px;
+}
+
+/* Bigger Title */
+#about h2 {
+    font-size: 3.2rem;
+    margin-bottom: 25px;
+}
+
+/* Bigger + Justified Paragraph */
+#about p {
+    max-width: 950px;
+    font-size: 1.35rem;           /* bigger text */
+    line-height: 2;
+    text-align: justify;          /* justify effect */
+    text-justify: inter-word;
+    color:  var(--text); 
+    margin-bottom: 60px;
+}
+
+/* Bigger & centered cards row */
+.about-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Bigger Cards */
+.about-card {
+    width: 380px;                 /* wider */
+    padding: 40px 30px;
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+/* Card titles bigger */
+.about-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+/* ---------- Align hero text with navbar logo (K) ---------- */
+/* Uses the same max-width and centering as .container to match navbar */
+
+:root {
+  --site-max: 1200px; /* keep in sync with your existing --max-width if changed */
+}
+
+/* Make hero use same centered container width */
+.hero-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* This inner container matches the navbar container exactly */
+.hero-inner {
+  width: calc(100% - 48px);    /* same as .container */
+  max-width: var(--site-max);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* text left, photo right */
+  align-items: flex-start;        /* allow fine vertical control */
+  padding-top: 40px;              /* tweak vertical spacing if needed */
+}
+
+/* Align hero-left to the exact left edge the logo sits on */
+.hero-left {
+  /* ensures the left text column starts where the navbar logo starts */
+  width: 52%;               /* control column width (adjust as desired) */
+  max-width: 620px;
+  margin: 0;
+  padding-left: 0;
+}
+
+/* Force profile to the right edge of the hero-inner container */
+.profile-wrap {
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin: 0;
+  padding-right: 0;
+}
+
+/* Fine-tune profile circle vertical position relative to navbar */
+.profile-wrap .profile-circle {
+  transform: translateY(-28px); /* move image up; reduce/increase number as needed */
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .hero-inner { flex-direction: column; align-items: center; gap: 1.4rem; }
+  .hero-left { width: 100%; max-width: 720px; text-align: center; }
+  .profile-wrap { padding-right: 0; margin-top: 10px; transform: none; }
+}
+#home {
+  padding-top: 60px !important; /* lower value = higher position */
+}
+/* CENTER THE SERVICES SECTION PERFECTLY */
+#services {
+  padding-top: 8vh;       /* move section downward slightly */
+  padding-bottom: 25vh;   /* create enough space below */
+  min-height: 100vh;      /* ensures full-screen section */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers vertically */
+  align-items: center;     /* centers horizontally */
+}
+
+/* MOVE PROJECT SECTION FAR BELOW SO IT DOES NOT SHOW */
+#projects {
+  margin-top: 250px;  /* adjust higher or lower as needed */
+}
+#services h2 {
+    text-align: left !important;
+    width: 100%;
+    margin-left: 0;
+      display: inline-block;
+}
+
+#services .section-title::after {
+    width: 120px;   /* adjust to your preferred size */
+    left: 0;
+    right: auto;
+    transform: none;
+}
+
+.underline {
+  width: 120px;      /* same short width */
+  height: 4px;
+  background: #00ffc3;
+  display: block;
+  margin-top: 8px;
+  border-radius: 2px;
+}
+#services .about-heading::after {
+    width: 120px !important;
+    left: 0 !important;
+    transform: none !important;
+}
+
+/* --- Make Projects section full height (like Services) --- */
+#projects {
+    min-height: 100vh;         /* Takes full screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* Centers content vertically */
+    align-items: center;       /* Centers horizontally */
+    padding-top: 8vh;          /* Adjust distance from top */
+    padding-bottom: 20vh;      /* Makes space before next section */
+}
+
+/* --- Make Testimonials section full height (exclusive view) --- */
+#testimonials {
+    min-height: 100vh;          /* Full screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    /* Center vertically */
+    align-items: center;        /* Center horizontally */
+    padding-top: 8vh;           /* Adjust top spacing */
+    padding-bottom: 20vh;       /* Push next section downward */
+}
+
+/* Resume Section */
+.resume-section {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #00ffb3;
+    text-shadow: 0 0 12px rgba(0, 255, 179, 0.7);
+}
+
+/* Grid Layout */
+.resume-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Resume Card */
+.resume-card {
+    background: linear-gradient(135deg, #351e8a, #4921a6);
+    padding: 25px 30px;
+    border-radius: 16px;
+    color: #fff;
+    box-shadow: 0px 8px 18px rgba(0,0,0,0.25);
+    height: 100%;
+}
+
+.resume-label {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #00ffb3;
+    text-shadow: 0 0 8px rgba(0,255,179,0.6);
+}
+
+.resume-item h4 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.resume-item .sub {
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.resume-item {
+    margin-bottom: 18px;
+}
+
+/* List Style */
+.resume-list {
+    padding-left: 18px;
+}
+
+.resume-list li {
+    margin-bottom: 8px;
+}
+
+/* Download Button */
+.resume-download {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.download-btn {
+    background-color: #00ffb3;
+    color: #000;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    background-color: #00e39f;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .resume-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Resume Layout */
+.resume-section {
+    width: 100%;
+    padding: 80px 0;
+}
+
+/* Grid Layout */
+.resume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
+    width: 85%;
+    margin: 40px auto 0 auto;
+}
+
+/* Resume Cards (Professional White Style + slight tint) */
+.resume-card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    color: var(--text-color);
+    transition: 0.25s ease;
+}
+
+/* Hover */
+.resume-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.resume-label,
+.resume-title {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* Subtitle (degree, roles, etc) */
+.resume-subtitle {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+
+/* Bigger school text */
+.resume-school {
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+}
+
+.resume-year {
+    font-size: 18px;
+    font-weight: 500;
+    color: #777;
+}
+
+.resume-card p,
+.resume-card li {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+.resume-card ul li {
+    margin-bottom: 8px;
+    font-size: 17px;
+    color: #333;
+}
+/* Clean container with no background */
+.resume-button-container {
+    width: 100%;
+    text-align: center;
+    margin: 50px 0;
+    padding: 0;     /* important */
+    background: none !important; /* remove remaining blur */
+}
+
+/* Sharp modern button */
+.resume-download {
+    background: #00dba7;
+    color: white;
+    padding: 14px 34px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 219, 167, 0.35);
+    border: none;
+    filter: none; /* remove possible blur */
+}
+
+/* Hover = lift + subtle glow */
+.resume-download:hover {
+    background: #00c497;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 219, 167, 0.45);
+}
+
+
+
+#resume-section {
+    width: 100%;
+    padding: 80px 0;
+    background: linear-gradient(180deg, #fdf8ff, #f1eaff); /* soft purple gradient */
+}
+
+/* Section title */
+.resume-heading {
+    font-size: 50px;
+    color: #8a4cff;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(138, 76, 255, 0.3);
+}
+
+
+/* =========================================================
+   RESUME SECTION — CLEAN + FIXED FOR LIGHT & DARK MODE
+   ========================================================= */
+
+/* =========================================================
+   RESUME SECTION — CLEAN + FIXED FOR LIGHT & DARK MODE
+   ========================================================= */
+
+/* Light & Dark Mode Variables */
+:root {
+    --resume-card-light: #ffffff;
+    --resume-card-dark: #1e2230;
+
+    --border-light: rgba(0,0,0,0.08);
+    --border-dark: rgba(255,255,255,0.12);
+
+    --text-light: #111;
+    --text-dark: #f5f5f5;
+
+    --accent-color: #8a4cff; /* Purple accent */
+}
+
+/* Light Mode */
+body:not(.dark-mode) {
+    --card-bg: var(--resume-card-light);
+    --card-text: var(--text-light);
+    --card-border: var(--border-light);
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --card-bg: var(--resume-card-dark);
+    --card-text: var(--text-dark);
+    --card-border: var(--border-dark);
+}
+
+/* ==============================
+   MAIN SECTION
+   ============================== */
+#resume-section {
+    width: 100%;
+    padding: 80px 0;
+    background: linear-gradient(180deg, #faf3ff, #f3eaff); /* soft purple */
+}
+
+.resume-heading {
+    font-size: 50px;
+    font-weight: 800;
+    color: var(--accent-color);
+    text-align: center; 
+    margin: 60px auto 20px;
+    text-shadow: 0 0 12px rgba(138, 76, 255, 0.35);
+    position: relative;
+}
+
+/* Centered underline */
+.resume-heading::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 140px;
+    height: 4px;
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
+
+/* ==============================
+   GRID
+   ============================== */
+.resume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
+    width: 85%;
+    margin: 40px auto;
+}
+
+
+/* Card Style */
+.resume-card {
+    background: var(--card-bg);
+    color: var(--card-text);
+    border: 1px solid var(--card-border);
+    padding: 40px;
+    border-radius: 22px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    transition: 0.25s ease;
+}
+
+/* Hover */
+.resume-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.22);
+}
+
+/* Section Titles (Education, Skills etc.) */
+.resume-label {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.resume-card p,
+.resume-card li {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--resume-text) !important;
+}
+
+.resume-card ul li {
+    margin-bottom: 8px;
+}
+
+.resume-button-container {
+    width: 100%;
+    text-align: center;
+    margin: 50px 0;
+}
+
+.resume-download {
+    background: #00dba7;
+    color: white;
+    padding: 14px 34px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 6px 15px rgba(0, 219, 167, 0.35);
+    transition: 0.3s ease;
+}
+
+.resume-download:hover {
+    background: #00c497;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 219, 167, 0.45);
+}
+
+
+/* ============================================================
+   FINAL FIX — Ensure resume cards are visible in dark mode
+   ============================================================ */
+
+/* Remove forced black/white from previous CSS */
+.resume-card,
+.resume-card * {
+    color: var(--resume-text) !important;
+}
+
+/* Correct dark mode text color */
+body.dark-mode .resume-card,
+body.dark-mode .resume-card * {
+    color: var(--resume-text-dark) !important;
+}
+
+/* Correct light mode text color */
+body:not(.dark-mode) .resume-card,
+body:not(.dark-mode) .resume-card * {
+    color: var(--resume-text-light) !important;
+}
+
+/* Ensure dark-mode background is applied */
+body.dark-mode .resume-card {
+    background: var(--resume-card-bg-dark) !important;
+    border-color: var(--resume-border-dark) !important;
+}
+
+/* Ensure light-mode background is applied */
+body:not(.dark-mode) .resume-card {
+    background: var(--resume-card-bg-light) !important;
+    border-color: var(--resume-border-light) !important;
+}
+
+
+/* ============================
+   RESPONSIVE ADJUSTMENTS
+============================ */
+
+@media (max-width: 1100px) {
+    .resume-grid {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+
+    .resume-card {
+        padding: 45px;
+    }
+}
+
+@media (max-width: 600px) {
+    .resume-title {
+        font-size: 28px;
+    }
+
+    .resume-card p,
+    .resume-card li {
+        font-size: 18px;
+    }
+}
